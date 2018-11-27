@@ -1,10 +1,7 @@
-const fetch = require("node-fetch");
-
 exports.handler = async (event, context) => {
     const id = event.queryStringParameters.id || "";
     const url = "https://player.vimeo.com/video/" + id + "/config";
 
-    
     return fetch(url)
         .then(response => response.json())
         .then(function(data) {
