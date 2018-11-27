@@ -8,9 +8,9 @@ exports.handler = (event, context, callback) => {
       var bestRes = 0;
       var videoUrl = "";
       for (var index = 0; index < res.data.request.files.progressive.length; index++) {
-        if (data.request.files.progressive[index].height > bestRes) {
-          videoUrl = data.request.files.progressive[index].url;
-          bestRes = data.request.files.progressive[index].height;
+        if (res.data.request.files.progressive[index].height > bestRes) {
+          videoUrl = res.data.request.files.progressive[index].url;
+          bestRes = res.data.request.files.progressive[index].height;
         }
       }
 
