@@ -1,0 +1,9 @@
+video {
+    min-width: 50%;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
