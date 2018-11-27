@@ -1,4 +1,1 @@
 headers = [{for = "/*", values = {Access-Control-Allow-Origin = "*"}}]
-
-[build]
-  Functions = "lambda"
