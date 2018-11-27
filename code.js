@@ -36,7 +36,7 @@ inputField.addEventListener("input", function (e) {
 
 button.addEventListener("click", function(e) {
     if (currentID != -1) {
-        const url = `https://vget.netlify.com/.netlify/functions/get?id=${currentID}&?q=${qualitySelect.value}`;
+        const url = `https://vget.netlify.com/.netlify/functions/get?id=${currentID}&q=${qualitySelect.value}`;
         fetch(url)
         .then(data=>{return data.json()})
         .then(res=>{
