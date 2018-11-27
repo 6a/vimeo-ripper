@@ -6,19 +6,21 @@ exports.handler = (event, context, callback) => {
   axios.get(url)
     .then((res) => {
       var bestRes = 0;
+      var bestWidth = 0;
       var videoUrl = "";
       for (var index = 0; index < res.data.request.files.progressive.length; index++) {
         if (res.data.request.files.progressive[index].height > bestRes) {
           videoUrl = res.data.request.files.progressive[index].url;
           bestRes = res.data.request.files.progressive[index].height;
+          bestWidth = res.data.request.files.progressive[index].width;
         }
       }
-
-      console.log(videoUrl);
+      
+      var posterURL = res.data.video.thumbs[bestWidth];
 
       callback(null, {
         statusCode: 200,
-        body: '{one: "HELLO DARKNESS MY OLD FRIEND", two: "IVE COME TO TALK WITH YOU AGAIN"}'
+        body: `{"video": "${videoUrl}", "poster": "${posterURL}"}`
       });
     })
     .catch((err) => {
