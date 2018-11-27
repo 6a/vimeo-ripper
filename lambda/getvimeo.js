@@ -1,8 +1,8 @@
 exports.handler = async (event, context) => {
-    const name = event.queryStringParameters.name || "World";
+    const id = event.queryStringParameters.id || "";
   
     return {
       statusCode: 200,
-      body: `Hello, ${name}`
+      body: `VIMEO ID: ${id}`
     };
   };
