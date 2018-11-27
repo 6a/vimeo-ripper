@@ -5,6 +5,7 @@ exports.handler = (event, context, callback) => {
   console.log(url);
   axios.get(url)
     .then((res) => {
+      console.log(res);
       callback(null, {
         statusCode: 200,
         body: "HELLO DARKNESS MY OLD FRIEND"
