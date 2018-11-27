@@ -5,7 +5,7 @@ exports.handler = (event, context, callback) => {
 
   axios.get(url)
     .then((res) => {
-      console.log(res.request.files[0]);
+      console.log(res.data.request.files);
       callback(null, {
         statusCode: 200,
         body: "HELLO DARKNESS MY OLD FRIEND"
