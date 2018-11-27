@@ -7,10 +7,8 @@ exports.handler = (event, context, callback) => {
     .then((res) => {
       callback(null, {
         statusCode: 200,
-        body: {
-          "video-url": "",
-          "poster-url": ""
-      }});
+        body: "HELLO DARKNESS MY OLD FRIEND"
+      });
     })
     .catch((err) => {
       callback(err);
