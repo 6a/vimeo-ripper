@@ -6,6 +6,10 @@ const inputField = document.getElementById("input");
 const button = document.getElementById("button");
 const qualitySelect = document.getElementById("selector");
 
+var videoUrlText = document.getElementById("result-url-txt");
+var posterUrlText = document.getElementById("result-poster-txt");
+var videoUrlAnchor = document.getElementById("result-url-anchor");
+var posterUrlAnchor = document.getElementById("result-poster-anchor");
 var currentID = -1;
 
 inputField.addEventListener("input", function (e) {
@@ -35,7 +39,17 @@ button.addEventListener("click", function(e) {
         const url = `https://vget.netlify.com/.netlify/functions/get?id=${currentID}&?q=${qualitySelect.value}`;
         fetch(url)
         .then(data=>{return data.json()})
-        .then(res=>{console.log(res)})
-        .catch(error=>{console.log(error)});
+        .then(res=>{
+            videoUrlAnchor.href = (res.video);
+            videoUrlText.innerText = "(video link)";
+            posterUrlAnchor.href = (res.poster);
+            posterUrlText.innerText = "(poster link)";
+        })
+        .catch(error=>{
+            console.log(error);
+
+        });
+
+
     }
 });
