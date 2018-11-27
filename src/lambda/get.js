@@ -18,7 +18,7 @@ exports.handler = (event, context, callback) => {
 
       callback(null, {
         statusCode: 200,
-        body: {one: "HELLO DARKNESS MY OLD FRIEND", two: "IVE COME TO TALK WITH YOU AGAIN"}
+        body: '{one: "HELLO DARKNESS MY OLD FRIEND", two: "IVE COME TO TALK WITH YOU AGAIN"}'
       });
     })
     .catch((err) => {
