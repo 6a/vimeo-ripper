@@ -2,7 +2,7 @@ const axios = require('axios');
 exports.handler = (event, context, callback) => {
   const id = event.queryStringParameters.id;
   const url = `https://player.vimeo.com/video/${id}/config`;
-  const quality = event.queryStringParameters.q;
+  const quality = parseInt(event.queryStringParameters.q);
   console.log(quality);
   console.log([360, 540, 720, 1080].includes(quality));
   axios.get(url)
