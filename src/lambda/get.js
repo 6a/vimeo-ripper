@@ -1,10 +1,12 @@
 const axios = require('axios');
 exports.handler = (event, context, callback) => {
-  axios.get('https://jsonplaceholder.typicode.com/todos/1')
+  const id = event.queryStringParameters.id || "";
+  const url = "https://player.vimeo.com/video/" + id + "/config";
+  axios.get(url)
     .then((res) => {
       callback(null, {
         statusCode: 200,
-        body: res.data.title,
+        body: "gg",
       });
     })
     .catch((err) => {
