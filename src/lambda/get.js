@@ -35,7 +35,8 @@ exports.handler = (event, context, callback) => {
 
       callback(null, {
         statusCode: 200,
-        body: `{"video": "${videoUrl}", "poster": "${posterURL}"}`
+        body: `{"video": "${videoUrl}", "poster": "${posterURL}"}`,
+        headers: {"Access-Control-Allow-Origin": "*"}
       });
     })
     .catch((err) => {
