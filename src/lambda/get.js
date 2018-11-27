@@ -31,7 +31,7 @@ exports.handler = (event, context, callback) => {
         }
       }
      
-      var posterURL = res.data.video.thumbs[bestWidth];
+      var posterURL = res.data.video.thumbs[bestWidth] || res.data.video.thumbs[1280] || res.data.video.thumbs[960] || res.data.video.thumbs[640];
 
       callback(null, {
         statusCode: 200,

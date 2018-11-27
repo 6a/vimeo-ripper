@@ -1,9 +1,138 @@
-video {
-    min-width: 50%;
+html {
+    width: 100%;
+    height: 100%;
+    font-family: Consolas, 'Courier New', 'Lucida Console', monospace;
 }
 
 body {
     display: flex;
     justify-content: center;
-    align-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background-color: #af2184;
+    background-image: -webkit-repeating-linear-gradient(top left, #e0620d 0%, #af2184 100%);
+    background-image: repeating-linear-gradient(to bottom right, #e0620d 0%, #af2184 100%);
+    background-image: -ms-repeating-linear-gradient(top left, #e0620d 0%, #af2184 100%);
 }
+
+.noselect {
+    -webkit-touch-callout: none; /* iOS Safari */
+      -webkit-user-select: none; /* Safari */
+       -khtml-user-select: none; /* Konqueror HTML */
+         -moz-user-select: none; /* Firefox */
+          -ms-user-select: none; /* Internet Explorer/Edge */
+              user-select: none; /* Non-prefixed version, currently
+                                    supported by Chrome and Opera */
+  }
+
+.app {
+    width: 100%;
+    max-width: 900px;
+    height: 100%;
+    max-height: 600px;
+    margin: 20px;
+    background-color: rgb(241, 241, 241);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.app input {
+    width: 60%;
+    text-align: center;
+    border-radius: 1000px;
+    outline: none;
+    line-height: 2em;
+    font-family: Consolas, 'Courier New', 'Lucida Console', monospace;
+    border: none;
+    border: 2px solid rgba(97, 223, 154, 0);
+}
+
+.input-section {
+    width: 80%;
+    text-align: center;
+}
+
+.app select {
+    outline: none;
+    padding: 1px;
+    font-family: Consolas, 'Courier New', 'Lucida Console', monospace;
+    border: 1px solid rgb(169, 169, 169);
+}
+
+.app select:hover {
+    outline: none;
+}
+
+.app button {
+    border: none;
+    outline: none;
+    margin: 16px 0;
+    padding: 10px;
+    line-height: 1.5em;
+    border-radius: 1000px;
+    min-width: 100px;
+    color: rgba(75, 75, 75, 0.8);
+    font-family: Consolas, 'Courier New', 'Lucida Console', monospace;
+}
+
+.app button:disabled {
+    background-color: rgb(226, 226, 226);
+    cursor: default;
+}
+
+.app button:enabled {
+    cursor: pointer !important;
+}
+
+.app p {
+    font-weight: bold;
+    color: rgba(0, 0, 0, 0.8);
+}
+
+.app h4 {
+    font-weight: unset;
+    font-style: italic;
+    margin: 5px 0;
+    font-size: 0.8em;
+    color: rgba(0, 0, 0, 0.7);
+}
+
+.app h5 {
+    margin: 5px 0;
+    font-weight: bold;
+    font-size: 1.05em;
+    color: rgba(81, 53, 97, 0.8);
+}
+
+.app a {
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.regex-good {
+    border: 2px solid rgb(97, 223, 153) !important;
+}
+
+.regex-bad {
+    border: 2px solid rgb(207, 76, 76) !important;
+}
+
+.fill-good {
+    background-color: rgb(97, 223, 153) !important;
+    color: white !important;
+}
+
+.fill-bad {
+    background-color: rgb(207, 76, 76) !important;
+    color: white !important;
+}
+
+/* .inactive-link {
+    visibility: hidden;
+} */

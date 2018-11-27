@@ -5,7 +5,7 @@
 <head>
     <meta charset="utf-8">
 
-    <title>Vimeo video rip test</title>
+    <title>Vimeo video ripper</title>
     <meta name="description" content="VRT">
     <meta name="author" content="JS">
 
@@ -14,9 +14,23 @@
 </head>
 
 <body>
-    <video data-src="291712532">
+    <div class="app">
+        <p class="noselect">enter the full video path</p>
+        <h4>example: https://vimeo.com/channels/staffpicks/212731897</h4>
+        <div class="input-section">
+            <input id="input" type="text" class="" spellcheck="false">
+            <select id="selector">
+                <option value="1080">1080P</option>
+                <option value="720">720P</option>
+                <option value="540">540P</option>
+                <option value="360">360P</option>
+            </select>
+        </div>
 
-    </video>
+        <button id="button" disabled>get url</button>
+        <a target="_blank" href="" class="inactive-link" id="result-url-anchor"><h5 id="result-url-txt">www</h5></a>
+        <a target="_blank" href="" class="inactive-link" id="result-poster-anchor"><h5 id="result-poster-txt">www</h5></a>
+    </div>
     <script src="code.js"></script>
 </body>
 
