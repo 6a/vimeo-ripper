@@ -1,6 +1,7 @@
 const axios = require('axios');
 exports.handler = (event, context, callback) => {
   const id = event.queryStringParameters.id;
+  console.log(id);
   const url = "https://player.vimeo.com/video/" + id + "/config";
   console.log(url);
   axios.get(url)
