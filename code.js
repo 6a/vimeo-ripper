@@ -6,6 +6,7 @@ const inputWrapper = document.getElementById("input-wrapper");
 const inputField = document.getElementById("input-field");
 const button = document.getElementById("button");
 const qualitySelect = document.getElementById("selector");
+const tipText = document.getElementById("tip");
 
 var videoUrlText = document.getElementById("result-url-txt");
 var posterUrlText = document.getElementById("result-poster-txt");
@@ -37,6 +38,10 @@ inputField.addEventListener("input", function (e) {
 
 button.addEventListener("click", function(e) {
     if (currentID != -1) {
+        tipText.classList.add("inactive");
+        videoUrlAnchor.classList.add("inactive");
+        posterUrlAnchor.classList.add("inactive");
+
         const url = `https://vget.netlify.com/.netlify/functions/get?id=${currentID}&q=${qualitySelect.value}`;
         fetch(url)
         .then(data=>{return data.json()})
@@ -45,6 +50,10 @@ button.addEventListener("click", function(e) {
             videoUrlText.innerText = "(video link)";
             posterUrlAnchor.href = (res.poster);
             posterUrlText.innerText = "(poster link)";
+
+            tipText.classList.remove("inactive");
+            videoUrlAnchor.classList.remove("inactive");
+            posterUrlAnchor.classList.remove("inactive");
         })
         .catch(error=>{
             console.log(error);
