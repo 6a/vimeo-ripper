@@ -14,6 +14,12 @@ var videoUrlAnchor = document.getElementById("result-url-anchor");
 var posterUrlAnchor = document.getElementById("result-poster-anchor");
 var currentID = -1;
 
+function hideLinks() {
+    tipText.classList.add("inactive");
+    videoUrlAnchor.classList.add("inactive");
+    posterUrlAnchor.classList.add("inactive");
+}
+
 inputField.addEventListener("input", function (e) {
     var rr = regex.exec(inputField.value);
 
@@ -38,14 +44,16 @@ inputField.addEventListener("input", function (e) {
 
 button.addEventListener("click", function(e) {
     if (currentID != -1) {
-        tipText.classList.add("inactive");
-        videoUrlAnchor.classList.add("inactive");
-        posterUrlAnchor.classList.add("inactive");
-
+        hideLinks();
         const url = `https://vget.netlify.com/.netlify/functions/get?id=${currentID}&q=${qualitySelect.value}`;
         fetch(url)
-        .then(data=>{return data.json()})
+        .then(data=>{
+            return data.json()
+        })
         .then(res=>{
+            if (!res.video) {
+                console.log("ruh roh");
+            }
             videoUrlAnchor.href = (res.video);
             videoUrlText.innerText = "(video link)";
             posterUrlAnchor.href = (res.poster);
@@ -57,9 +65,8 @@ button.addEventListener("click", function(e) {
         })
         .catch(error=>{
             console.log(error);
-
+            hideLinks();
         });
-
-
     }
 });
+

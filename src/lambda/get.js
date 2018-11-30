@@ -40,6 +40,10 @@ exports.handler = (event, context, callback) => {
       });
     })
     .catch((err) => {
-      callback(err);
+      callback(null, {
+        statusCode: 500,
+        body: `{"error": "The server encountered a problem when trying to get the video.", "details": "${err}"}`,
+        headers: { "Access-Control-Allow-Origin": "*" }
+      });
     });
 };
