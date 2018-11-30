@@ -48,24 +48,30 @@ button.addEventListener("click", function(e) {
         const url = `https://vget.netlify.com/.netlify/functions/get?id=${currentID}&q=${qualitySelect.value}`;
         fetch(url)
         .then(data=>{
-            return data.json()
+            return data.json();
         })
         .then(res=>{
             if (!res.video) {
-                console.log("ruh roh");
+                videoUrlAnchor.removeAttribute("href");
+                videoUrlText.innerText = "(failed)";
+                posterUrlAnchor.removeAttribute("href");
+                posterUrlText.innerText = "(failed)";
+            } else {
+                videoUrlAnchor.href = (res.video);
+                videoUrlText.innerText = "(video link)";
+                posterUrlAnchor.href = (res.poster);
+                posterUrlText.innerText = "(poster link)";
             }
-            videoUrlAnchor.href = (res.video);
-            videoUrlText.innerText = "(video link)";
-            posterUrlAnchor.href = (res.poster);
-            posterUrlText.innerText = "(poster link)";
 
             tipText.classList.remove("inactive");
             videoUrlAnchor.classList.remove("inactive");
             posterUrlAnchor.classList.remove("inactive");
         })
         .catch(error=>{
-            console.log(error);
-            hideLinks();
+            videoUrlAnchor.removeAttribute("href");
+            videoUrlText.innerText = "(failed)";
+            posterUrlAnchor.removeAttribute("href");
+            posterUrlText.innerText = "(failed)";
         });
     }
 });
