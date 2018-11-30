@@ -17,17 +17,16 @@
     <div class="app">
         <p class="noselect">enter the full video path</p>
         <h4>example: https://vimeo.com/channels/staffpicks/212731897</h4>
-        <div class="input-section">
-            <input id="input" type="text" class="" spellcheck="false">
+        <div id="input-wrapper" class="input-section">
+            <input id="input-field"  type="text" class="" spellcheck="false">
             <select id="selector">
                 <option value="1920">1080P</option>
                 <option value="1280">720P</option>
                 <option value="960">540P</option>
                 <option value="640">360P</option>
             </select>
+            <button id="button" disabled><img class="go-button" src="./img/play-button.svg" alt=""></button>
         </div>
-
-        <button id="button" disabled>get url</button>
         <a target="_blank" href="" class="inactive-link" id="result-url-anchor"><h5 id="result-url-txt">www</h5></a>
         <a target="_blank" href="" class="inactive-link" id="result-poster-anchor"><h5 id="result-poster-txt">www</h5></a>
         <h4>tip: click on the links to view them, or right click -> save as to download.</h4>
