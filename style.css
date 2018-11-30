@@ -40,6 +40,7 @@ body {
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    position: relative;
 }
 
 .app input {
@@ -157,6 +158,11 @@ body {
     justify-content: space-between;
     align-items: center;
     width: 40%;
+}
+
+#tip {
+    position: absolute;
+    bottom: 0;
 }
 
 .regex-good {

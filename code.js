@@ -20,29 +20,7 @@ function hideLinks() {
     posterUrlAnchor.classList.add("inactive");
 }
 
-inputField.addEventListener("input", function (e) {
-    var rr = regex.exec(inputField.value);
-
-    if (rr && rr.length >= 7 && !isNaN(rr[6])) {
-        inputWrapper.classList.add("regex-good");
-        inputWrapper.classList.remove("regex-bad");
-
-        button.disabled  = false;
-        button.classList.add("fill-good");
-        button.classList.remove("fill-bad");
-        currentID = rr[6];
-    } else {
-        inputWrapper.classList.add("regex-bad");
-        inputWrapper.classList.remove("regex-good");
-
-        button.disabled  = true;
-        button.classList.add("fill-bad");
-        button.classList.remove("fill-good");
-        currentID = -1;
-    }
-});
-
-button.addEventListener("click", function(e) {
+function get() {
     if (currentID != -1) {
         hideLinks();
         const url = `https://vget.netlify.com/.netlify/functions/get?id=${currentID}&q=${qualitySelect.value}`;
@@ -74,5 +52,38 @@ button.addEventListener("click", function(e) {
             posterUrlText.innerText = "(failed)";
         });
     }
+}
+
+inputField.addEventListener("input", function (e) {
+    var rr = regex.exec(inputField.value);
+
+    if (rr && rr.length >= 7 && !isNaN(rr[6])) {
+        inputWrapper.classList.add("regex-good");
+        inputWrapper.classList.remove("regex-bad");
+
+        button.disabled  = false;
+        button.classList.add("fill-good");
+        button.classList.remove("fill-bad");
+        currentID = rr[6];
+    } else {
+        inputWrapper.classList.add("regex-bad");
+        inputWrapper.classList.remove("regex-good");
+
+        button.disabled  = true;
+        button.classList.add("fill-bad");
+        button.classList.remove("fill-good");
+        currentID = -1;
+    }
+});
+
+inputField.addEventListener("keypress", function (e) {
+    if (e.keyCode == 13) {
+        get();
+    }
+});
+
+
+button.addEventListener("click", function(e) {
+    get();
 });
 
