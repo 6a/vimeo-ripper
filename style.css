@@ -12,10 +12,10 @@ body {
     height: 100%;
     margin: 0;
     padding: 0;
-    background-color: #003087;
-    background-image: -webkit-repeating-linear-gradient(top, #003087 0%, #090c25 100%);
-    background-image: repeating-linear-gradient(to bottom, #003087 0%, #090c25 100%);
-    background-image: -ms-repeating-linear-gradient(top, #003087 0%, #090c25 100%);
+    background-color: #af2184;
+    background-image: -webkit-repeating-linear-gradient(top left, #e0620d 0%, #af2184 100%);
+    background-image: repeating-linear-gradient(to bottom right, #e0620d 0%, #af2184 100%);
+    background-image: -ms-repeating-linear-gradient(top left, #e0620d 0%, #af2184 100%);
 }
 
 .noselect {
